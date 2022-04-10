@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+
+  <!-- Title -->
+  <title>CZ4034 Assignment</title>
+  <nav class="navbar fixed-top navbar-light bg-dark text-light">
+    <a id="navBarText" class="navbar-brand" href="#">Info Retreival Group 13</a>
+  </nav>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row align-items-center">
+      <div id="headerDiv" class="col">
+        <h2 id="title">Russia - Ukraine Tweets Search Engine</h2>
+      </div>
+    </div>
+    <!-- World Cloud -->
+    <div id="chartdiv"></div>
+    <div id="searchBarDiv" class="row">
+      <form>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input id="userSearchQuery" name="userSearchQuery" type="text" class="form-control" placeholder="Search...."
+              aria-label="queryTerm" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="button" onclick="myFunc()"><i class="fa fa-search">
+                  Search</i></button>
+            </div>
+          </div>
+          <!-- <p>Search Filter</p> -->
+        </div>
+        <div class="d-grid gap-2 d-md-block">
+          <button type="button" class="btn btn-outline-warning" onClick="window.location.reload()">
+            <i class="fa fa-refresh"> Refresh</i>
+          </button>
+        </div>
+        <button type="button" class="advanced-settings">Advanced Settings</button>
+        <div class="advanced-settings-options">
+          <label for="searchCat">Choose a Search Category:</label>
+          <select name="searchCat" id="searchCat">
+            <option value="text">Text</option>
+            <option value="name">Name</option>
+            <option value="username">Username</option>
+          </select> <br><br>
+
+          <label for="sentimentCat">Choose a Sentiment Category:</label>
+          <select name="sentimentCat" id="sentimentCat">
+            <option value="*">All</option>
+            <option value="neutral">Neutral</option>
+            <option value="ukraine">Pro-Ukraine</option>
+            <option value="russia">Pro-Russia</option>
+          </select> <br><br>
+        </div>
+
+      </form>
+    </div>
+    <br>
+
+    <div id="sendNewQuery" class="row">
+    </div>
+    <br>
+
+    <div id="resultTitle" class="row">
+      <h4 id="resultTitleText"></h4>
+    </div>
+    <!-- For the Title -->
+    <br>
+
+    <div id="resultStats" class="row">
+      <h5 id="resultStatsText"></h5>
+    </div>
+    <!-- For the Query Statistics -->
+<div class="container">
+    <div class="row">
+        <div id="resultContent"class="col-6"></div>
+        <div class="col-6">
+          <div class="container" id="chartsContainer">
+            <div class="row">
+              <div class="col-6" id="chartContainer"></div>
+              <div class="col"></div>
+              <div class="w-100"></div>
+              <div class="col-6" id="chartContainer2"></div>
+              <div class="col"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+  </div>
+
+  <script src="search.js"></script>
+  <script src="wordcloud.js"></script>
+
+  <script>
+    var coll = document.getElementsByClassName("advanced-settings");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

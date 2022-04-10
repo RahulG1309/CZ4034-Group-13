@@ -1,0 +1,97 @@
+#title {
+  text-align: center;
+}
+
+#navBarText {
+  color: white;
+  margin-left: 10px;
+}
+
+#chartdiv { 
+  width: 100%; 
+  height: 300px; 
+}
+
+body {
+  padding-top: 65px;
+}
+
+.container {
+    margin-top: 10px;
+}
+
+.card {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.advanced-settings {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .advanced-settings:hover {
+  background-color: #555;
+}
+
+.advanced-settings:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.active:after {
+  content: "\2212";
+}
+.advanced-settings-options {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+.left-half {
+  position: absolute;
+  width: 50%;
+}
+
+.right-half {
+  position: absolute;
+  right: 0px;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+#chartContainer{
+  display: table-row;
+  width: 100%;
+  height:500px;
+}
+#chartContainer2{
+  display: table-row;
+  width: 100%;
+  height:500px;
+}
+#chartsContainer{
+  height:100%;
+  display:table;
+}
